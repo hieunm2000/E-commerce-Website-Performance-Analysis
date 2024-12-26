@@ -39,7 +39,11 @@ Dự án này thực hiện phân tích hiệu suất của một website thươ
    - Mở tệp SQL `E-commerce Website Performance Analysis.sql` trong công cụ SQL.
    - Thực thi từng khối lệnh để tạo bảng, chèn dữ liệu, và chạy các truy vấn phân tích.
 
+---
+## Insights
 
+- **Thời Điểm Khách Hàng Ghé Thăm:** Xác định khoảng thời gian nào trong năm là khoảng thời gian khách hàng có nhu cầu tìm đến nhất.
+- **Sản Phẩm Được Khách Hàng Mua Nhiều Nhất:** Hiển thị danh sách sản phẩm được mua nhiều nhất đính kèm với số lượng của từng sản phẩm đã được bán ra
 ---
 
 ## Cải Tiến Tương Lai
