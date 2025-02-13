@@ -1,52 +1,213 @@
-# E-commerce-Website-Performance-Analysis
-Phân tích dữ liệu thương mại điện tử tập trung vào tương tác của người dùng, mô hình mua sắm và số liệu hiệu suất sản phẩm để đưa ra quyết định tiếp thị.
+# [SQL] Explore Ecommerce Dataset
+## I. Introduction
+This project contains an eCommerce dataset that I will explore using SQL on [Google BigQuery](https://cloud.google.com/bigquery). The dataset is based on the Google Analytics public dataset and contains data from an eCommerce website.
+## II. Requirements
+* [Google Cloud Platform account](https://cloud.google.com)
+* Project on Google Cloud Platform
+* [Google BigQuery API](https://cloud.google.com/bigquery/docs/enable-transfer-service#:~:text=Enable%20the%20BigQuery%20Data%20Transfer%20Service,-Before%20you%20can&text=Open%20the%20BigQuery%20Data%20Transfer,Click%20the%20ENABLE%20button.) enabled
+* [SQL query editor](https://cloud.google.com/monitoring/mql/query-editor) or IDE
+## III. Dataset Access
+The eCommerce dataset is stored in a public Google BigQuery dataset. To access the dataset, follow these steps:
+* Log in to your Google Cloud Platform account and create a new project.
+* Navigate to the BigQuery console and select your newly created project.
+* In the navigation panel, select "Add Data" and then "Search a project".
+* Enter the project ID **"bigquery-public-data.google_analytics_sample.ga_sessions"** and click "Enter".
+* Click on the **"ga_sessions_"** table to open it.
+## IV. Exploring the Dataset
+In this project, I will write 08 query in Bigquery base on Google Analytics dataset
 
-# Phân Tích Hiệu Suất Website Thương Mại Điện Tử
+### Query 01: Calculate total visit, pageview, transaction and revenue for January, February and March 2017 order by month
+* SQL code
 
-## Giới Thiệu
-Dự án này thực hiện phân tích hiệu suất của một website thương mại điện tử thông qua việc sử dụng SQL để truy vấn và xử lý dữ liệu. Mục tiêu của dự án là cung cấp các chỉ số phân tích quan trọng về hoạt động của website, bao gồm doanh thu, lượt truy cập, hành vi người dùng, và hiệu quả bán hàng.
+![image](https://github.com/user-attachments/assets/ddb9bc18-6131-411d-b38c-f24757b3ef02)
 
----
 
-## Tính Năng Chính
-- **Phân Tích Doanh Thu:** Tính tổng doanh thu, doanh thu trung bình trên mỗi giao dịch.
-- **Phân Khúc Khách Hàng:** Phân loại khách hàng theo hành vi mua sắm (số lần mua hàng, tổng chi tiêu).
-- **Phân Tích Sản Phẩm:** Xác định sản phẩm bán chạy, doanh thu theo danh mục sản phẩm.
-- **Phân Tích Hiệu Quả Website:** Đánh giá lượt truy cập, tỷ lệ chuyển đổi, và thời gian hoạt động.
+* Query results
 
----
+![image](https://github.com/user-attachments/assets/b9ac3046-d7e4-4873-96aa-de45924b243d)
 
-## Tập Lệnh SQL Bao Gồm
-1. **Tạo Bảng Dữ Liệu:** Tạo các bảng dữ liệu giao dịch, khách hàng, sản phẩm, và danh mục sản phẩm.
-2. **Truy Vấn Phân Tích:** Các truy vấn chính bao gồm:
-   - Tính tổng doanh thu và doanh thu trung bình.
-   - Xác định khách hàng giá trị cao (High-value customers).
-   - Phân tích danh mục sản phẩm bán chạy.
-   - Tính toán tỷ lệ chuyển đổi từ lượt truy cập thành giao dịch.
-3. **Tích Hợp Dữ Liệu:** Liên kết dữ liệu từ nhiều bảng để tạo báo cáo tổng hợp.
+### Query 02: Bounce rate per traffic source in July 2017
+* SQL code
 
----
+![image](https://github.com/user-attachments/assets/30d2c0fe-f111-4c86-a1ad-62d060cbb511)
 
-## Cách Sử Dụng
-1. **Yêu Cầu Hệ Thống:**
-   - Một cơ sở dữ liệu SQL (MySQL/PostgreSQL/SQL Server) đã được cài đặt.
-   - Công cụ quản lý cơ sở dữ liệu như MySQL Workbench hoặc DBeaver.
-2. **Hướng Dẫn:**
-   - Clone kho lưu trữ về máy của bạn:
-     ```bash
-     git clone <repository-url>
-     ```
-   - Mở tệp SQL `E-commerce Website Performance Analysis.sql` trong công cụ SQL.
-   - Thực thi từng khối lệnh để tạo bảng, chèn dữ liệu, và chạy các truy vấn phân tích.
 
----
-## Insights
+* Query results
 
-- **Thời Điểm Khách Hàng Ghé Thăm:** Xác định khoảng thời gian nào trong năm là khoảng thời gian khách hàng có nhu cầu tìm đến nhất.
-- **Sản Phẩm Được Khách Hàng Mua Nhiều Nhất:** Hiển thị danh sách sản phẩm được mua nhiều nhất đính kèm với số lượng của từng sản phẩm đã được bán ra
----
+![image](https://github.com/user-attachments/assets/4976913e-dfda-45dc-bb4f-0ddcc8a2e915)
 
-## Cải Tiến Tương Lai
-- **Tích Hợp BI Tool:** Kết nối dữ liệu với Power BI hoặc Tableau để trực quan hóa.
-- **Tự Động Hóa:** Viết script tự động cập nhật dữ liệu hàng ngày.
-- **Mở Rộng Dữ Liệu:** Bổ sung thêm dữ liệu hành vi người dùng và quảng cáo để phân tích toàn diện.
+
+### Query 3: Revenue by traffic source by week, by month in June 2017
+* SQL code
+
+![image](https://github.com/user-attachments/assets/90522a5e-233d-4021-9089-59f943a50cdd)
+
+
+* Query results
+
+![image](https://github.com/user-attachments/assets/752f3592-e0bb-4031-b67c-1a57217e8833)
+
+### Query 04: Average number of product pageviews by purchaser type (purchasers vs non-purchasers) in June, July 2017
+* SQL code
+
+![image](https://github.com/user-attachments/assets/fafb1b5c-b091-4725-89ab-88ff4430d2d7)
+
+* Query results
+
+![image](https://github.com/user-attachments/assets/2137a364-bc8c-46bb-b756-744a5a22a01f)
+
+
+### Query 05: Average number of transactions per user that made a purchase in July 2017
+* SQL code
+
+![image](https://github.com/user-attachments/assets/1badbb40-e7c5-44dc-b50c-7445f23092e0)
+
+
+* Query results
+
+![image](https://github.com/user-attachments/assets/43c0764d-ea9d-48b2-a977-5eb690235aa9)
+
+
+### Query 06: Average amount of money spent per session. Only include purchaser data in July 2017
+* SQL code
+
+![image](https://github.com/user-attachments/assets/a357892d-e0ba-4728-afed-13dcab300ce5)
+
+
+* Query results
+
+![image](https://github.com/user-attachments/assets/f31d0b68-6c2f-47f7-8a55-aa64b3783dbd)
+
+
+### Query 07: Other products purchased by customers who purchased product "YouTube Men's Vintage Henley" in July 2017. Output should show product name and the quantity was ordered.
+* SQL code
+
+![image](https://github.com/user-attachments/assets/e677b33e-250a-4533-b808-9dc287210c73)
+
+
+* Query results
+
+![image](https://github.com/user-attachments/assets/31839964-1b3e-44a5-95b0-4d4d690b6826)
+
+
+
+  ### Query 08: C"Query 08: Calculate cohort map from product view to addtocart to purchase in Jan, Feb and March 2017.
+  * SQL code
+
+```
+
+with xem_san_pham AS (
+SELECT  EXTRACT(MONTH FROM PARSE_DATE('%Y%m%d', date)) AS month, 
+        COUNT(*) AS num_product_view
+FROM  `bigquery-public-data.google_analytics_sample.ga_sessions_2017*`,
+UNNEST (hits) AS hits,
+UNNEST (hits.product) AS product
+WHERE
+      hits.eCommerceAction.action_type = '2'
+      AND EXTRACT(YEAR FROM PARSE_DATE('%Y%m%d', date)) = 2017 
+      AND EXTRACT(MONTH FROM PARSE_DATE('%Y%m%d', date)) IN (01, 02, 03) 
+GROUP BY month
+),
+
+add_to_cart AS(
+  SELECT EXTRACT(MONTH FROM PARSE_DATE('%Y%m%d', date)) AS month,
+        COUNT(*) AS num_addtocart
+FROM  `bigquery-public-data.google_analytics_sample.ga_sessions_2017*`,
+UNNEST (hits) AS hits,
+UNNEST (hits.product) AS product
+WHERE
+      hits.eCommerceAction.action_type = '3'
+      AND EXTRACT(YEAR FROM PARSE_DATE('%Y%m%d', date)) = 2017
+      AND EXTRACT(MONTH FROM PARSE_DATE('%Y%m%d', date)) IN (01, 02, 03) 
+GROUP BY month
+),
+
+mua_hang AS (
+SELECT EXTRACT(MONTH FROM PARSE_DATE('%Y%m%d', date)) AS month,
+        COUNT(*) AS num_purchase
+FROM  `bigquery-public-data.google_analytics_sample.ga_sessions_2017*`,
+UNNEST (hits) AS hits,
+UNNEST (hits.product) AS product
+WHERE
+      hits.eCommerceAction.action_type = '6'
+      AND EXTRACT(YEAR FROM PARSE_DATE('%Y%m%d', date)) = 2017 
+      AND EXTRACT(MONTH FROM PARSE_DATE('%Y%m%d', date)) IN (01, 02, 03) 
+GROUP BY month
+)
+
+SELECT
+  xem_san_pham.month,
+  num_product_view AS num_product_view,
+  num_addtocart AS num_addtocart,
+  num_purchase AS num_purchase,
+  ROUND((num_addtocart / num_product_view) * 100, 2) AS add_to_cart_rate,
+  ROUND((num_purchase / num_product_view) * 100, 2) AS purchase_rate
+FROM xem_san_pham
+
+LEFT JOIN add_to_cart
+ON xem_san_pham.month = add_to_cart.month 
+
+LEFT JOIN mua_hang
+ON xem_san_pham.month = mua_hang.month 
+
+ORDER BY month;
+
+with
+product_view as(
+  SELECT
+    format_date("%Y%m", parse_date("%Y%m%d", date)) as month,
+    count(product.productSKU) as num_product_view
+  FROM `bigquery-public-data.google_analytics_sample.ga_sessions_*`
+  , UNNEST(hits) AS hits
+  , UNNEST(hits.product) as product
+  WHERE _TABLE_SUFFIX BETWEEN '20170101' AND '20170331'
+  AND hits.eCommerceAction.action_type = '2'
+  GROUP BY 1
+),
+
+add_to_cart as(
+  SELECT
+    format_date("%Y%m", parse_date("%Y%m%d", date)) as month,
+    count(product.productSKU) as num_addtocart
+  FROM `bigquery-public-data.google_analytics_sample.ga_sessions_*`
+  , UNNEST(hits) AS hits
+  , UNNEST(hits.product) as product
+  WHERE _TABLE_SUFFIX BETWEEN '20170101' AND '20170331'
+  AND hits.eCommerceAction.action_type = '3'
+  GROUP BY 1
+),
+
+purchase as(
+  SELECT
+    format_date("%Y%m", parse_date("%Y%m%d", date)) as month,
+    count(product.productSKU) as num_purchase
+  FROM `bigquery-public-data.google_analytics_sample.ga_sessions_*`
+  , UNNEST(hits) AS hits
+  , UNNEST(hits.product) as product
+  WHERE _TABLE_SUFFIX BETWEEN '20170101' AND '20170331'
+  AND hits.eCommerceAction.action_type = '6'
+  and product.productRevenue is not null   
+  group by 1
+)
+
+select
+    pv.*,
+    num_addtocart,
+    num_purchase,
+    round(num_addtocart*100/num_product_view,2) as add_to_cart_rate,
+    round(num_purchase*100/num_product_view,2) as purchase_rate
+from product_view pv
+left join add_to_cart a on pv.month = a.month
+left join purchase p on pv.month = p.month
+order by pv.month;
+
+```
+* Query results
+
+![image](https://user-images.githubusercontent.com/101726623/235148311-a2d83174-9bf3-43e3-aed1-47030af40b3b.png)
+
+## V. Conclusion
+* In conclusion, my exploration of the eCommerce dataset using SQL on Google BigQuery based on the Google Analytics dataset has revealed several interesting insights.
+* By exploring eCommerce dataset, I have gained valuable information about total visits, pageview, transactions, bounce rate, and revenue per traffic source,.... which could inform future business decisions.
+* To deep dive into the insights and key trends, the next step will visualize the data with some software like Power BI,Tableau,...
+* **Overall**, this project has demonstrated the power of using SQL and big data tools like Google BigQuery to gain insights into large datasets.
